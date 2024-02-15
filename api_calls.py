@@ -1,5 +1,9 @@
+from tkinter import *
+from customtkinter import *
+
 import requests
 import json
+
 
 access_token = None  # Variable globale pour stocker le token (à adapter selon vos besoins)
 
@@ -30,9 +34,9 @@ def login(username, password):
 # ... Gérer l'échec de la connexion ...
 
 def call_api_with_token():
-    api_url = "http://localhost:8080/api/autre-endpoint"  # Exemple d'endpoint
+    api_url = "http://localhost:8080/api/visits"
     headers = {"Authorization": f"Bearer {access_token}"}
     response = requests.get(api_url, headers=headers)
-    # ... Traiter la réponse ...
+    return (response.content.decode("utf-8"))
 
 # ... Autres fonctions d'appel à l'API ...
