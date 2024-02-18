@@ -19,7 +19,6 @@ def login(username, password, message_label):
         encoded_token = response_data.get("token")
         # Décoder le token
         decoded_token = jwt.decode(encoded_token, options={"verify_signature": False})
-        print(decoded_token)
         roles = decoded_token.get("roles")  # Supposons que les rôles sont inclus dans le token
         if encoded_token and "ROLE_SECRETARIAT" in roles:
             global access_token
@@ -39,12 +38,7 @@ def call_api_with_token():
     response = requests.get(api_url, headers=headers)
     return (response.content.decode("utf-8"))
 
-
-# ... Autres fonctions d'appel à l'API ...
-
-
 def get_patient_details(patient_id, visit_id):
-    print(patient_id, visit_id)
     api_url = f"http://localhost:8080/api/patients/{patient_id}/{visit_id}"
     headers = {"Authorization": f"Bearer {access_token}"}
     response = requests.get(api_url, headers=headers)
@@ -55,7 +49,6 @@ def print_patient_details(visit_id, patient_id, root):
     # Récupérer les informations détaillées de la visite à partir de l'API
     details = get_patient_details(patient_id, visit_id)
     details = json.loads(details)
-    print(details)
     # Création d'une nouvelle fenêtre pour afficher les détails
     details_window = CTkToplevel(root)
 
@@ -147,5 +140,5 @@ def print_patient_details(visit_id, patient_id, root):
             no_opinion_label.pack()
 
     # Bouton pour revenir à l'affichage principal
-    back_button = CTkButton(master=details_window, text="Retour", command=lambda: details_window.destroy())
+    back_button = CTkButton(master=details_window, text="Retour", fg_color="#007bff", command=lambda: details_window.destroy())
     back_button.pack()
