@@ -12,12 +12,18 @@ def handle_login(username, password):
         message_label.configure(text="Connexion réussie!", text_color="green")
         username_entry.delete(0, ct.END)
         password_entry.delete(0, ct.END)
-        # Créer un nouveau frame pour l'affichage après connexion
-        main_frame = ct.CTkFrame(master=root)
-        main_frame.pack(fill=ct.BOTH, expand=True)
+
+        # Importer la fonction depuis le fichier inOut.py
+        from inOut import creer_main_frame
+
+        # Créer le nouveau frame en utilisant la fonction importée
+        main_frame = creer_main_frame(root, username)
 
         # Détruire le frame de connexion
         login_frame.destroy()
+
+        # Afficher le nouveau frame
+        main_frame.pack()
     else:
         # Invalid credentials
         message_label.configure(text="Nom d'utilisateur ou mot de passe incorrect.", text_color="red")
