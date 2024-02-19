@@ -29,6 +29,10 @@ Avant de commencer l'installation du projet, veuillez vous assurer que vous disp
     sudo apt install python3-tk
     ```
 
-   Note : La commande peut varier selon votre distribution Linux. Veuillez consulter la documentation de votre distribution pour obtenir des instructions spécifiques.
 
-Après avoir suivi ces étapes, votre projet devrait être correctement installé et prêt à être utilisé.
+4. Lancement de l'application :
+   Se placer dans le dossier de l'application et dans un terminal :
+
+    ```bash
+    python3 setup.py
+    ```
