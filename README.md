@@ -12,7 +12,7 @@ Avant de commencer l'installation du projet, veuillez vous assurer que vous disp
 1. Installation des modules Python :
 
     ```bash
-    pip install requests jwt customtkinter
+    pip install requests customtkinter
     ```
 
 2. Installation du module JSON :
@@ -29,8 +29,13 @@ Avant de commencer l'installation du projet, veuillez vous assurer que vous disp
     sudo apt install python3-tk
     ```
 
+3. Lancer les containers dans le projet web:
 
-4. Lancement de l'application :
+    ```bash
+    docker compose up -d
+    ```
+
+5. Lancement de l'application :
    Se placer dans le dossier de l'application et dans un terminal :
 
     ```bash
